@@ -127,9 +127,10 @@
         
     </div>
     <div class="right-panel">
-            <form name="contact-form" netlify>
+            <form name="contact-form" id="form" netlify>
                 <div class="form-group">
                     <input type="text" id="name" name="name" placeholder="Name*" required>
+                  <p id="output"></p>
                 </div>
                 <div class="form-group">
                     <input type="email" id="email" name="email" placeholder="Email*" >
@@ -194,7 +195,22 @@
             }
         });
 
+       document.getElementById('form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevents the form from submitting in the traditional way
+
+   // const nameInput = document.getElementById('name');
+   // const name = nameInput.value.trim(); // Get the name and remove whitespace
+
+    const outputElement = document.getElementById('output');
+
+    if (!name) {
+  
+        outputElement.textContent  = "Please enter a user name.";
+        outputElement.style.color = "red";
+    }
+});
        
     </script>
 </body>
 </html>
+
